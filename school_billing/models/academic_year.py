@@ -26,13 +26,10 @@ class SchoolAcademicYear(models.Model):
         default=True,
     )
     # 2. Contraintes SQL
-    _sql_constraints = [
-        (
-            "school_academic_year_name_unique",
-            "unique(name)",
-            "The academic year must be unique.",
-        ),
-    ]
+    _name_unique = models.Constraint(
+    "UNIQUE(name)",
+    "The academic year must be unique.",
+    )
 
     # 3. Contraintes métier Python
     @api.constrains("date_start", "date_end")
