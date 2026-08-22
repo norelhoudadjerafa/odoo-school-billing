@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_school_billing_root"
+        name="School Billing"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_school_billing_configuration"
+        name="Configuration"
+        parent="menu_school_billing_root"
+        sequence="90"
+    />
+
+    <menuitem
+        id="menu_school_academic_year"
+        name="Academic Years"
+        parent="menu_school_billing_configuration"
+        action="action_school_academic_year"
+        sequence="10"
+    />
+
+</odoo>

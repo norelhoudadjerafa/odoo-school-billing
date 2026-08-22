@@ -10,7 +10,11 @@
         "contacts",
         "account",
     ],
-    "data": [],
+    "data": [
+    "security/ir.model.access.csv",
+    "views/academic_year_views.xml",
+    "views/menus.xml",
+    ],
     "installable": True,
     "application": True,
 }
