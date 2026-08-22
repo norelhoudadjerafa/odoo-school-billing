@@ -13,6 +13,9 @@
     "data": [
     "security/ir.model.access.csv",
     "views/academic_year_views.xml",
+    "views/school_class_views.xml",
+    "views/enrollment_views.xml",
+    "views/res_partner_views.xml",
     "views/menus.xml",
     ],
     "installable": True,

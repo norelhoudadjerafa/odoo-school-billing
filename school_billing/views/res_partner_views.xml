@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_school_billing" model="ir.ui.view">
+        <field name="name">res.partner.form.school.billing</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+
+        <field name="arch" type="xml">
+
+            <!-- Ajouter School Information avant Contacts -->
+            <page name="contact_addresses" position="before">
+                <page
+                    name="school_information"
+                    string="School Information"
+                    autofocus="autofocus"
+                >
+                    <group>
+                        <field name="is_student"/>
+                        <field name="is_parent"/>
+                        <field
+                            name="billing_parent_id"
+                            invisible="not is_student"
+                        />
+                    </group>
+                </page>
+            </page>
+
+            <!-- Retirer le focus automatique de Contacts -->
+            <page name="contact_addresses" position="attributes">
+                <attribute name="autofocus"/>
+            </page>
+
+        </field>
+
+    </record>
+
+</odoo>

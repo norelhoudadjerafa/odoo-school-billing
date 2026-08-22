@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Root menu -->
     <menuitem
         id="menu_school_billing_root"
         name="School Billing"
         sequence="10"
     />
 
+    <!-- Main business menu -->
+    <menuitem
+        id="menu_school_enrollment"
+        name="Enrollments"
+        parent="menu_school_billing_root"
+        action="action_school_enrollment"
+        sequence="10"
+    />
+
+    <!-- Configuration -->
     <menuitem
         id="menu_school_billing_configuration"
         name="Configuration"
@@ -15,11 +26,19 @@
     />
 
     <menuitem
+        id="menu_school_class"
+        name="Classes"
+        parent="menu_school_billing_configuration"
+        action="action_school_class"
+        sequence="10"
+    />
+
+    <menuitem
         id="menu_school_academic_year"
         name="Academic Years"
         parent="menu_school_billing_configuration"
         action="action_school_academic_year"
-        sequence="10"
+        sequence="20"
     />
 
 </odoo>
