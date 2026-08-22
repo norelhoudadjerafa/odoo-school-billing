@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class SchoolAcademicYear(models.Model):
@@ -24,3 +25,21 @@ class SchoolAcademicYear(models.Model):
         string="Active",
         default=True,
     )
+    # 2. Contraintes SQL
+    _sql_constraints = [
+        (
+            "school_academic_year_name_unique",
+            "unique(name)",
+            "The academic year must be unique.",
+        ),
+    ]
+
+    # 3. Contraintes métier Python
+    @api.constrains("date_start", "date_end")
+    def _check_dates(self):
+        for record in self:
+            if record.date_start and record.date_end:
+                if record.date_end < record.date_start:
+                    raise ValidationError(
+                        "The end date must be after the start date."
+                    )
